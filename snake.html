@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt" lang="pt">
+	<head>
+		<title>Jogo Snake em HTML5</title>
+		<meta http-equiv="content-language" content="pt-br" />
+		<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />		
+		<link rel="stylesheet" href="css/default.css" type="text/css"/>
+		<meta name="author" content="Danilo Augusto - maktuiu@gmail.com" />
+		<meta name="description" content="Jogo simples para demonstração de funcionamento de canvas em HTML5" />
+		<script type="text/javascript" src="js/snake.js"></script>	
+
+	<style>
+		#jogar{
+			background-image: url(play.png);
+			background-size: 50px 50px;
+			border: 0px;
+			width: 50px;
+			height: 50px;
+		}
+	</style>
+		
+	</head>
+	<body>
+	<a id="link_musica" href="javascript: iniciarMusica()">Com som</a>
+	<a id="link_silencio" href="javascript: pausarMusica()">Sem Som</a>
+		<div id="container">
+			<canvas id="canvas" width="405" height="405">
+				Seu browser não suporta canvas
+			</canvas>
+		</div>
+		<div id="box_score">
+			<h1> <span id="pontos"> 0 </span>&nbsp;pontos </h1>
+		</div>
+		
+		<div class="legenda">
+			<h1>Comandos</h1>
+			<p><strong>I</strong> - Iniciar;</p>
+			<p><strong>P</strong> - pause;</p>
+		</div>
+		<button id="jogar" onclick="javascript:Jogo._iniciar()"></button>
+		<script>
+var musicaAcao;
+carregarMusicas();
+	function carregarMusicas() {
+         musicaAcao = new Audio();
+         musicaAcao.src = 'musica-acao.mp3';
+         musicaAcao.load();
+         musicaAcao.volume = 0.5;
+         musicaAcao.loop = true;
+      }
+	  
+	  function mostrarLinkIniciarMusica() {
+         document.getElementById('link_musica').style.display =
+            'block';
+      }
+	  
+	  function mostrarLinkPausarMusica() {
+         document.getElementById('link_silencio').style.display =
+            'block';
+      }
+	  
+	  function iniciarMusica() {       
+         document.getElementById('link_musica').style.display = 'fixed';
+         
+         musicaAcao.play();
+      }
+	  
+	  function pausarMusica() {       
+         document.getElementById('link_silencio').style.display = 'fixed';
+         
+         musicaAcao.pause();
+      }
+	  	  
+</script>
+		
+	</body>
+</html>
